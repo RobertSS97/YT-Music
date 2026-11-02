@@ -77,7 +77,7 @@ h1 .grad { background: var(--grad); -webkit-background-clip: text; background-cl
 
 .shot-hero {
   margin: 48px auto 0; border-radius: var(--radius); overflow: hidden;
-  border: 1px solid var(--border); box-shadow: var(--shadow); max-width: 1000px;
+  border: 1px solid var(--border); box-shadow: var(--shadow); width: 100%; max-width: min(1000px, 100%);
 }
 
 /* Seções */
