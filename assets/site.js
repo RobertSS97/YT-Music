@@ -1,3 +1,28 @@
+// Vitrine "Veja por dentro": abas trocam a captura e a legenda (setas do teclado também).
+document.querySelectorAll("[data-showcase]").forEach((showcase) => {
+  const tabs = [...showcase.querySelectorAll('[role="tab"]')];
+  const images = [...showcase.querySelectorAll(".stage img")];
+  const caption = showcase.querySelector(".caption");
+  const select = (index, focus) => {
+    tabs.forEach((t, i) => {
+      t.setAttribute("aria-selected", String(i === index));
+      t.tabIndex = i === index ? 0 : -1;
+    });
+    images.forEach((img, i) => img.classList.toggle("active", i === index));
+    caption.innerHTML = tabs[index].dataset.caption;
+    if (focus) tabs[index].focus();
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i, false));
+    tab.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") select((i + 1) % tabs.length, true);
+      if (e.key === "ArrowLeft") select((i - 1 + tabs.length) % tabs.length, true);
+    });
+  });
+  // Pré-carrega as demais capturas depois que a página abre, para a troca ser instantânea.
+  addEventListener("load", () => images.forEach((img) => (img.loading = "eager")));
+});
+
 // Aponta os botões de download para o instalador da versão mais recente (com fallback para a página de versões).
 (async () => {
   const buttons = document.querySelectorAll("[data-download]");
