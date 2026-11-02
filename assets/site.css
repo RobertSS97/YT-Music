@@ -1,0 +1,138 @@
+/* Site do YT Music — mesmo visual do app: Fluent, cantos suaves, cores da logo. */
+:root {
+  --bg: #f6f4fb;
+  --bg-elev: #ffffff;
+  --text: #17141f;
+  --text-2: #5b5568;
+  --border: #e6e1ef;
+  --accent: #db2777;
+  --accent-text: #ffffff;
+  --grad: linear-gradient(135deg, #7c3aed 0%, #ec4899 55%, #f97316 100%);
+  --shadow: 0 1px 2px rgb(20 10 40 / 6%), 0 12px 40px rgb(20 10 40 / 10%);
+  --radius: 14px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0b1a;
+    --bg-elev: #171327;
+    --text: #f4f1fb;
+    --text-2: #b4adc6;
+    --border: #2a2440;
+    --accent: #f472b6;
+    --accent-text: #1a0b16;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 16px 48px rgb(0 0 0 / 45%);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); }
+
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+/* Topo */
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text); text-decoration: none; }
+.brand img { width: 32px; height: 32px; }
+.nav-links { display: flex; gap: 18px; align-items: center; font-size: 15px; }
+.nav-links a { color: var(--text-2); text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+
+/* Destaque */
+.hero { position: relative; padding: 56px 0 40px; text-align: center; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: -40% -10% auto; height: 120%;
+  background: radial-gradient(closest-side, rgb(124 58 237 / 22%), transparent 70%),
+              radial-gradient(closest-side at 80% 60%, rgb(236 72 153 / 18%), transparent 70%);
+  z-index: -1;
+}
+.hero-logo { width: 96px; height: 96px; margin: 0 auto 20px; filter: drop-shadow(0 12px 30px rgb(236 72 153 / 35%)); }
+h1 {
+  margin: 0; font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(36px, 6vw, 64px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700;
+}
+h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { max-width: 680px; margin: 18px auto 0; font-size: clamp(17px, 2vw, 20px); color: var(--text-2); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px;
+  font-weight: 600; font-size: 16px; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--grad); color: #fff; box-shadow: 0 10px 30px rgb(236 72 153 / 35%); }
+.btn-ghost { background: var(--bg-elev); color: var(--text); border: 1px solid var(--border); }
+.btn svg { width: 20px; height: 20px; }
+.meta { margin-top: 14px; font-size: 14px; color: var(--text-2); }
+
+.shot-hero {
+  margin: 48px auto 0; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border); box-shadow: var(--shadow); max-width: 1000px;
+}
+
+/* Seções */
+section { padding: 64px 0; }
+h2 {
+  margin: 0 0 8px; font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.01em; text-align: center;
+}
+.section-lead { text-align: center; color: var(--text-2); margin: 0 auto 40px; max-width: 640px; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.card {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+}
+.card .icon {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px;
+  background: var(--grad); margin-bottom: 14px;
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; }
+.card ul { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 15px; }
+.card li + li { margin-top: 4px; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.gallery figure { margin: 0; }
+.gallery img { border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+.gallery figcaption { margin-top: 10px; font-size: 15px; color: var(--text-2); text-align: center; }
+
+.steps { counter-reset: step; display: grid; gap: 14px; max-width: 760px; margin: 0 auto; padding: 0; list-style: none; }
+.steps li {
+  counter-increment: step; position: relative; padding: 18px 20px 18px 64px;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.steps li::before {
+  content: counter(step); position: absolute; left: 18px; top: 16px; width: 32px; height: 32px;
+  border-radius: 50%; background: var(--grad); color: #fff; display: grid; place-items: center; font-weight: 700;
+}
+.note {
+  max-width: 760px; margin: 20px auto 0; padding: 16px 20px; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--bg-elev); color: var(--text-2); font-size: 15px;
+}
+.note strong { color: var(--text); }
+
+.faq { max-width: 760px; margin: 0 auto; display: grid; gap: 10px; }
+.faq details { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq p { margin: 10px 0 0; color: var(--text-2); }
+
+footer { padding: 40px 0 56px; border-top: 1px solid var(--border); color: var(--text-2); font-size: 14px; text-align: center; }
+footer p { margin: 6px 0; }
+
+@media (max-width: 640px) {
+  .nav-links a.hide-sm { display: none; }
+  section { padding: 48px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

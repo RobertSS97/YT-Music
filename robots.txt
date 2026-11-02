@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://robertss97.github.io/YT-Music/sitemap.xml

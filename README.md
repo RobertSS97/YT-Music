@@ -9,6 +9,8 @@ animações suaves e tudo o que você espera: biblioteca, playlists e música of
 
 [![Baixar para Windows](https://img.shields.io/badge/Baixar_para_Windows-x64-0078D4?style=for-the-badge&logo=windows11&logoColor=white)](https://github.com/RobertSS97/YT-Music/releases/latest)
 
+**[Site](https://robertss97.github.io/YT-Music/)** · **[English](README.en.md)**
+
 ![Windows 10 e 11](https://img.shields.io/badge/Windows-10%20%7C%2011-555?style=flat-square)
 ![Versão](https://img.shields.io/github/v/release/RobertSS97/YT-Music?style=flat-square&label=vers%C3%A3o)
 ![Downloads](https://img.shields.io/github/downloads/RobertSS97/YT-Music/total?style=flat-square&label=downloads)
